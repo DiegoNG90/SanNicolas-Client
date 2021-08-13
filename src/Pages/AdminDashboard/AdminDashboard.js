@@ -1,5 +1,7 @@
 const AdminDashboard = () => {
-    return (  );
+    return (
+        <h1>Dashboard || bievenido #eladmin </h1>
+     );
 }
 
 export default AdminDashboard;
