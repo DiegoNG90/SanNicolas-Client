@@ -2,11 +2,13 @@ import {Container, Row} from 'react-bootstrap'
 
 import Product from '../Product'
 
-const Products = () => {
+const Products = ({data}) => {
     return (
         <Container fluid="md">
-            <Row className="justify-content-center">
-                <Product />
+            <Row className="justify-content-between">
+                {data?.map(product => {
+                    return <Product key={product.id} {...product} />;
+                })}
             </Row>
         </Container>
 
