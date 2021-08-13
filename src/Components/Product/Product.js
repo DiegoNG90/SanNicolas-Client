@@ -1,19 +1,34 @@
-import {Card, Button} from 'react-bootstrap'
+import {Col,Card, Button} from 'react-bootstrap'
+import { useAxios } from '../../Hooks/useAxios';
 
-const Product = () => {
-    return (
+import ErrorMessage from '../../Components/Layout/ErrorMessage';
+import ItemSlider from './ItemSlider'
+
+const Product = ({...product}) => {
+  // Traer los productos con las fotos por id
+  const {
+    data,
+    loading,
+    error,
+  } = useAxios(`/products/${product.id}`);
+  console.log('photosRelated from Product', data.photosRelated);
+
+  if(loading) return "";
+  if(error) return <ErrorMessage message="el server" />
+
+  return (
+    <Col className="mt-4">
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <ItemSlider photos={data.photosRelated} />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Card.Title>{product.nombre}</Card.Title>
+          <Card.Text>{product.descripcion}</Card.Text>
+          <Card.Text>Precio ${product.decimales}</Card.Text>
+          <Button variant="primary">Ver producto</Button>
         </Card.Body>
       </Card>
-    );
+    </Col>
+  );
 }
 
 export default Product;
