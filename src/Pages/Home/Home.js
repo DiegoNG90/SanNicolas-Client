@@ -1,6 +1,6 @@
 import {useAxios} from "../../Hooks/useAxios";
 
-import Navbar from '../../Components/Layout/Navbar';
+import Navbar from '../../Components/Layout/Navbar/Navbar.js';
 import Products from '../../Components/Products';
 import Loader from '../../Components/Loader';
 import ErrorMessage from '../../Components/Layout/ErrorMessage'
