@@ -14,7 +14,7 @@ const SearchBar = () => {
     return (
       <Form
         onSubmit={getCharacters}
-        className="d-flex justify-content-between w-75"
+        className="d-flex justify-content-center w-50"
       >
         <FormControl
           onChange={(e) => setCharacter(e.target.value)}
