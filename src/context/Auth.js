@@ -2,7 +2,7 @@ import { createContext, useReducer } from 'react';
 import { SET_AUTH, LOGOUT } from '../actions/auth';
 import { authReducer, initialState } from '../reducers/auth';
 import jwt_decode from 'jwt-decode';
-import API from '../api';
+import {API} from '../API.js';
 
 // 1) Creo/defino el contexto
 export const AuthContext = createContext();
