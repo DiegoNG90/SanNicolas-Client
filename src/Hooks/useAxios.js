@@ -24,5 +24,4 @@ export const useAxios = (endpoint = '') => {
   }, [endpoint, getData]);
 
   return state;
-  // return [data, loading, error];
 };
