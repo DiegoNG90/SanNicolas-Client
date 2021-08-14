@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 import ErrorMessage from '../../Components/Layout/ErrorMessage';
 import ItemSlider from './ItemSlider';
 
-const Product = ({...product}) => {
+const Product = ({id, nombre, descripcion, decimales, moneda}) => {
   // Traer los productos con las fotos por id
   const {
     data,
     loading,
     error,
-  } = useAxios(`/products/${product.id}`);
+  } = useAxios(`/products/${id}`);
   console.log('photosRelated from Product', data.photosRelated);
 
   if(loading) return "";
@@ -23,9 +23,9 @@ const Product = ({...product}) => {
       <Card style={{ width: '18rem' }}>
         <ItemSlider photos={data.photosRelated} />
         <Card.Body>
-          <Card.Title>{product.nombre}</Card.Title>
-          <Card.Text>{product.descripcion}</Card.Text>
-          <Card.Text>Precio ${product.decimales}</Card.Text>
+          <Card.Title>{nombre}</Card.Title>
+          <Card.Text>{descripcion}</Card.Text>
+          <Card.Text>Precio ${decimales} {moneda}</Card.Text>
           <Button variant="primary">Ver producto</Button>
         </Card.Body>
       </Card>
@@ -38,12 +38,12 @@ Product.propTypes = {
     id: PropTypes.number.isRequired,
     nombre: PropTypes.string.isRequired,
     descripcion: PropTypes.string.isRequired,
-    precio: PropTypes.string.isRequired,
+    // precio: PropTypes.string.isRequired,
     decimales: PropTypes.string.isRequired,
     moneda: PropTypes.string.isRequired,
-    estado: PropTypes.string.isRequired,
-    es_nuevo: PropTypes.bool.isRequired,
-    fecha_de_alta: PropTypes.string.isRequired,
+    // estado: PropTypes.string.isRequired,
+    // es_nuevo: PropTypes.bool.isRequired,
+    // fecha_de_alta: PropTypes.string.isRequired,
   }),
 };
 
