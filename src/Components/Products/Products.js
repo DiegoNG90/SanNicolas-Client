@@ -1,5 +1,5 @@
 import {Container, Row} from 'react-bootstrap'
-
+import PropTypes from 'prop-types'
 import Product from '../Product'
 
 const Products = ({data}) => {
@@ -15,5 +15,8 @@ const Products = ({data}) => {
     );
 }
 
-export default Products
-;
+Products.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+}
+
+export default Products;

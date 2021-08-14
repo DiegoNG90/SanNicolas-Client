@@ -1,4 +1,5 @@
 import {Alert} from 'react-bootstrap';
+import PropTypes from 'prop-types'
 
 const ErrorMessage = ({message}) => {
     return (
@@ -6,6 +7,10 @@ const ErrorMessage = ({message}) => {
         Ha ocurrido un error en {message}
       </Alert>
     );
+}
+
+ErrorMessage.propTypes = {
+  message: PropTypes.string.isRequired,
 }
 
 export default ErrorMessage;
