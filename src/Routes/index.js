@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import { AuthProvider } from '../context/Auth'
 
 import Home from '../Pages/Home'
 import Login from '../Pages/Login'
@@ -11,12 +12,14 @@ const Routes = () => {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/dashboard">
-            <AdminDashboard />
-          </Route>
+          <AuthProvider>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/dashboard">
+              <AdminDashboard />
+            </Route>
+          </AuthProvider>
           <Redirect to="/" />
         </Switch>
       </Router>
