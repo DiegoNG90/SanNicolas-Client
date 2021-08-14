@@ -1,6 +1,6 @@
 import { Col,Card, Button } from 'react-bootstrap';
 import { useAxios } from '../../Hooks/useAxios';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 import ErrorMessage from '../../Components/Layout/ErrorMessage';
@@ -20,13 +20,17 @@ const Product = ({id, nombre, descripcion, decimales, moneda}) => {
 
   return (
     <Col className="mt-4">
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '18rem', height: '100%' }}>
         <ItemSlider photos={data.photosRelated} />
-        <Card.Body>
+        <Card.Body className="d-flex flex-column justify-content-end">
           <Card.Title>{nombre}</Card.Title>
           <Card.Text>{descripcion}</Card.Text>
-          <Card.Text>Precio ${decimales} {moneda}</Card.Text>
-          <Button variant="primary">Ver producto</Button>
+          <Card.Text>
+            Precio ${decimales} {moneda}
+          </Card.Text>
+          <Link to={`/:${id}`}>
+            <Button variant="primary">Ver producto</Button>
+          </Link>
         </Card.Body>
       </Card>
     </Col>
