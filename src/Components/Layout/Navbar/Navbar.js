@@ -13,10 +13,10 @@ const Navbar = () => {
 
   return (
     <NavBootstrap bg="dark" variant="dark" expand="lg" collapseOnSelect>
-      <Container>
-        <NavLink to={'/'}>
-          <Logo />
-        </NavLink>
+      <Container fluid className="d-flex justify-content-between">
+
+        <Logo />
+
 
         <SearchBar />
 
