@@ -9,7 +9,8 @@ const AdminDashboard = () => {
     <>
       <Navbar />
       <h1>Dashboard</h1>
-      <p>Bievenido {name}</p>;
+      <p>Bievenido {name}</p>
+      Falta poner rutas PUT POST Y DELETE, probablemente con FormControls (inputs)
     </>
   );
 };
