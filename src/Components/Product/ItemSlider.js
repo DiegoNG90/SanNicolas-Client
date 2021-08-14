@@ -1,7 +1,8 @@
 import {useState} from 'react';
+import PropTypes from 'prop-types';
 
 import { Carousel } from 'react-bootstrap';
-import './style.css'
+import './style.css';
 
 const ItemSlider = ({photos}) => {
   const [index, setIndex] = useState(0);
@@ -33,6 +34,10 @@ const ItemSlider = ({photos}) => {
         })}
     </Carousel>
   );
+};
+
+ItemSlider.propTypes = {
+  photos: PropTypes.array.isRequired,
 };
 
 export default ItemSlider;

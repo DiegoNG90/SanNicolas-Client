@@ -1,8 +1,10 @@
-import {Col,Card, Button} from 'react-bootstrap'
+import { Col,Card, Button } from 'react-bootstrap';
 import { useAxios } from '../../Hooks/useAxios';
+import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 import ErrorMessage from '../../Components/Layout/ErrorMessage';
-import ItemSlider from './ItemSlider'
+import ItemSlider from './ItemSlider';
 
 const Product = ({...product}) => {
   // Traer los productos con las fotos por id
@@ -30,5 +32,19 @@ const Product = ({...product}) => {
     </Col>
   );
 }
+
+Product.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    nombre: PropTypes.string.isRequired,
+    descripcion: PropTypes.string.isRequired,
+    precio: PropTypes.string.isRequired,
+    decimales: PropTypes.string.isRequired,
+    moneda: PropTypes.string.isRequired,
+    estado: PropTypes.string.isRequired,
+    es_nuevo: PropTypes.bool.isRequired,
+    fecha_de_alta: PropTypes.string.isRequired,
+  }),
+};
 
 export default Product;
