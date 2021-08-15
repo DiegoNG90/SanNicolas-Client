@@ -11,23 +11,25 @@ const Routes = () => {
       <Router>
         <Switch>
           <AuthProvider>
+
             <Route path="/" exact>
               <Home />
             </Route>
 
-            <Route path="/:id" exact>
+            <Route path="/product/:id" exact>
               <ProductPage />
             </Route>
-            
-             {/* ProductPage y Login se me superponen, que está pasando? */}
 
             <Route path="/login">
               <Login />
             </Route>
+
             <Route path="/dashboard">
               <AdminDashboard />
             </Route>
+
             <Redirect to="/" />
+            
           </AuthProvider>
         </Switch>
       </Router>
