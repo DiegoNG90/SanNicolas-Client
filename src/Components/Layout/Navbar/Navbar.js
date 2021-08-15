@@ -1,5 +1,5 @@
 import { Navbar as NavBootstrap, Container, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../../Hooks/useAuth';
 
 import Logo from '../../Logo';
@@ -21,9 +21,9 @@ const Navbar = () => {
         <SearchBar />
 
         {!isLoggedIn ?
-        <NavLink to={'/login'}>
+        <Link to={'/login'}>
           <Button variant="success">Admin</Button>
-        </NavLink>
+        </Link>
        :
         <Button
           variant="danger"
