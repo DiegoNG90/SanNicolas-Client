@@ -7,15 +7,6 @@ import { useEffect, useState } from 'react';
 const Products = ({data, character}) => {
     const [filteredProducts, setFilteredProducts] = useState("")
 
-
-    console.log(
-      'Data from Product :>',
-      data,
-      'Character from Products :>',
-      character,
-      "FilteredProducts :>", filteredProducts
-    );
-
     useEffect(() => {
       const productsFilteredByCategory = data.filter((product) =>
         product.categoria.includes(character.toLowerCase())
@@ -53,6 +44,7 @@ const Products = ({data, character}) => {
 
 Products.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    character: PropTypes.string,
 }
 
 export default Products;
