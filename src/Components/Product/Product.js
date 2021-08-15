@@ -21,14 +21,14 @@ const Product = ({id, nombre, descripcion, decimales, moneda}) => {
   return (
     <Col className="mt-4">
       <Card style={{ width: '18rem', height: '100%' }}>
-        <ItemSlider photos={data.photosRelated} />
+        <ItemSlider photos={data.photosRelated} width="286px" height="286px"/>
         <Card.Body className="d-flex flex-column justify-content-end">
           <Card.Title>{nombre}</Card.Title>
           <Card.Text>{descripcion}</Card.Text>
           <Card.Text>
             Precio ${decimales} {moneda}
           </Card.Text>
-          <Link to={`/:${id}`}>
+          <Link to={`/${id}`}>
             <Button variant="primary">Ver producto</Button>
           </Link>
         </Card.Body>

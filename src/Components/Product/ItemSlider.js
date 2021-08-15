@@ -2,9 +2,8 @@ import {useState} from 'react';
 import PropTypes from 'prop-types';
 
 import { Carousel } from 'react-bootstrap';
-import './style.css';
 
-const ItemSlider = ({photos}) => {
+const ItemSlider = ({photos, width, height}) => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -28,6 +27,7 @@ const ItemSlider = ({photos}) => {
                 className="d-block w-100"
                 src={photo.foto_url}
                 alt="First slide"
+                style={{ width: `${width}`, height: `${height}` }}
               />
             </Carousel.Item>
           );
