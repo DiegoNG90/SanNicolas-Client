@@ -7,7 +7,6 @@ import ErrorMessage from '../../Components/Layout/ErrorMessage';
 import ItemSlider from './ItemSlider';
 
 const Product = ({id, nombre, descripcion, decimales, moneda}) => {
-  // Traer los productos con las fotos por id
   const {
     data,
     loading,
@@ -21,7 +20,9 @@ const Product = ({id, nombre, descripcion, decimales, moneda}) => {
   return (
     <Col className="mt-4">
       <Card style={{ width: '18rem', height: '100%' }}>
-        <ItemSlider photos={data.photosRelated} width="286px" height="286px"/>
+        <ItemSlider
+          photos={data.photosRelated}
+          height="286px"/>
         <Card.Body className="d-flex flex-column justify-content-end">
           <Card.Title>{nombre}</Card.Title>
           <Card.Text>{descripcion}</Card.Text>
