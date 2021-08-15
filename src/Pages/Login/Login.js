@@ -29,6 +29,10 @@ const Login = () => {
   });
 
   return (
+    <>
+    <Button className="m-4" variant="info" onClick={() => history.push("/")}>
+      ← A Home
+    </Button>
     <Container className="w-50 pt-5">
       <h2>Admin Authentication</h2>
       <Form onSubmit={formik.handleSubmit}>
@@ -73,6 +77,7 @@ const Login = () => {
       </Form>
       {wrongPassword && <span>Admin user o contraseña incorrectas</span>}
     </Container>
+    </>
   );
 };
 
