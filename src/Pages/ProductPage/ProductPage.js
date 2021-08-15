@@ -1,7 +1,30 @@
+import { useParams } from 'react-router-dom';
+import { useAxios } from '../../Hooks/useAxios';
+import { Container } from 'react-bootstrap';
+
+import Navbar from '../../Components/Layout/Navbar/Navbar'
+import Loader from '../../Components/Loader'
+import ErrorMessage from '../../Components/Layout/ErrorMessage';
+import ProductDetail from './ProductDetail'
+
 const ProductPage = () => {
-    return (
-        <h1>Aca va a venir un producto/varios, buscado a través del  SearchBar</h1>
-     );
-}
+  const { id } = useParams();
+  console.log('id desde ProductPage :>', id);
+  const { data, loading,error } = useAxios(`/products/${id}`);
+  const { results, photosRelated} = data
+  console.log('results :>', results, "photosRelated:", photosRelated);
+
+  if (loading) return <Loader />;
+  if(error) return <ErrorMessage message="en ProductPage" />
+
+  return (
+    <>
+      <Navbar />
+      <Container fluid>
+        <ProductDetail product={results} photos={photosRelated}/>
+      </Container>
+    </>
+  );
+};
 
 export default ProductPage;
