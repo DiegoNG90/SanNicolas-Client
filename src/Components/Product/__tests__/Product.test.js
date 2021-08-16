@@ -1,8 +1,11 @@
-import {render} from '@testing-library/react'
+import { render, waitForElement} from '@testing-library/react'
 import Product from '../Product';
 import ErrorMessage from '../../Layout/ErrorMessage'
+import axiosMock from 'axios';
+import {useAxios} from '../../../Hooks/useAxios'
 
-describe("Product", () => {
+
+describe("Product and useAxios", () => {
     let defaultProps;
     beforeEach(()=> {
         defaultProps = {
@@ -15,6 +18,27 @@ describe("Product", () => {
           }
         }
     })
+    test('Llama a la api y muestra la data', async () => {
+      axiosMock.get.mockResolvedValueOnce({
+        data: {
+          id: 1,
+          nombre: 'pelota',
+          descripcion: '',
+          decimales: '',
+          moneda: '',
+        },
+      });
+      const url = '/products';
+      const { getByTestId } = render(<useAxios url={url} />);
+
+      expect(getByTestId('loading')).toHaveTextContent('');
+
+      const resolved = await waitForElement(() => getByTestId("resolved"))
+      expect(resolved).toHaveTextContent('pelota');
+      expect(axiosMock.get).toHaveBeenCalledTimes(1);
+      expect(axiosMock.get).toHaveBeenCalledWith(url)
+
+    });
      test('Si esta cargando, que no devuelva nada', () => {
        const loading = true;
        const { getByText } = render(<Product />);
