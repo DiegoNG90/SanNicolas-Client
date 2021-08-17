@@ -1,6 +1,20 @@
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, /* FloatingLabel */} from 'react-bootstrap';
+import { useState } from 'react';
 
 const CreateTable = () => {
+
+    const setDate = () => {
+        let dd = new Date().getDate();
+        let mm = new Date().getMonth();
+        let yyyy = new Date().getFullYear()
+
+        if(dd < 10) dd = "0" + dd
+        if(mm < 10) mm = "0" + mm
+
+        const finalDate = dd + "/" + mm + "/" + yyyy
+        return finalDate;
+    }
+
     return (
       <Form>
         <Form.Group className="mb-3" controlId="nombre">
@@ -25,26 +39,52 @@ const CreateTable = () => {
 
         <Form.Group className="mb-3" controlId="precio">
           <Form.Label>Precio del producto</Form.Label>
-          <Form.Control type="text" placeholder="precio" />
+          <Form.Control type="text" placeholder="Precio" />
         </Form.Group>
 
-        {/* onChange de precio y setea el value */}
+        {/* onChange de precio y setea el value. readOnly*/}
 
         <Form.Group className="mb-3" controlId="decimales">
           <Form.Label>Decimales del producto</Form.Label>
-          <Form.Control type="text" value="" />
+          <Form.Control type="text" value="" readOnly disabled />
         </Form.Group>
+
+        {/* <FloatingLabel controlId="floatingSelect" label="Works with selects">
+          <Form.Select aria-label="Floating label select example">
+            <option>Open this select menu</option>
+            <option value="ARS">Peso argentino</option>
+            <option value="USD">Dolar USD</option>
+          </Form.Select>
+        </FloatingLabel> */}
+        {/* No funciona, no lo toma y eso que le pase el FloatingLabel en el import de react-bootstrap! */}
 
         <Form.Group className="mb-3" controlId="moneda">
           <Form.Label>Moneda del producto</Form.Label>
-          <Form.Control type="text" placeholder="Descripcion" />
+          <Form.Control type="text" placeholder="ARS o USD" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+        <Form.Group className="mb-3" controlId="estado">
+          <Form.Label>Estado del producto</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Publicado, borrador o eliminado"
+          />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+
+        <Form.Group className="mb-3" controlId="nuevo">
+          <Form.Check type="checkbox" label="Es nuevo" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="fecha_de_alta">
+          <Form.Label>Fecha de alta del producto</Form.Label>
+          <Form.Control
+            type="text"
+            value={setDate()} readOnly disabled
+          />
+        </Form.Group>
+
+        <Button variant="success" type="submit">
+          Crear producto
         </Button>
       </Form>
     );
