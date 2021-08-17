@@ -36,7 +36,13 @@ const CreateTable = () => {
 
         <Form.Group className="mb-3" controlId="descripcion">
           <Form.Label>Descripcion del producto</Form.Label>
-          <Form.Control type="text" placeholder="Descripcion" />
+          <div class="mb-3">
+            <textarea
+              class="form-control"
+              id="descripcion"
+              rows="3"
+            ></textarea>
+          </div>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="categoria">
@@ -62,7 +68,7 @@ const CreateTable = () => {
 
         <Form.Group className="mb-3" controlId="decimales">
           <Form.Label>Decimales del producto</Form.Label>
-          <Form.Control type="text" value={decimales} readOnly disabled/>
+          <Form.Control type="text" value={decimales} readOnly disabled />
         </Form.Group>
 
         {/*<FloatingLabel controlId="floatingSelect" label="Works with selects">
