@@ -31,7 +31,7 @@ const UpdateDeleteTable = ({data}) => {
                   <td>{product.decimales}</td>
                   <td>{product.moneda}</td>
                   <td>{product.estado}</td>
-                  <td>{product.es_nuevo}</td>
+                  <td>{product.es_nuevo? "Si": "No"}</td>
                   <td>{product.fecha_de_alta}</td>
                   <td className="text-center">
                     <Button variant="info">

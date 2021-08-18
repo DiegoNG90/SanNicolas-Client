@@ -1,4 +1,8 @@
-import { Form, Button /*, FloatingLabel */} from 'react-bootstrap';
+import {
+  Form,
+  Button,
+  OverlayTrigger, Tooltip /*, FloatingLabel */,
+} from 'react-bootstrap';
 // import { FloatingLabel } from 'react-bootstrap/FloatingLabel';
 import { useState } from 'react';
 
@@ -27,6 +31,12 @@ const CreateTable = () => {
         return finalDate;
     }
 
+    const renderTooltip = (props) => (
+      <Tooltip id="button-tooltip" {...props}>
+        Coming soon!
+      </Tooltip>
+    );
+
     return (
       <Form>
         <Form.Group className="mb-3" controlId="nombre">
@@ -37,11 +47,7 @@ const CreateTable = () => {
         <Form.Group className="mb-3" controlId="descripcion">
           <Form.Label>Descripcion del producto</Form.Label>
           <div class="mb-3">
-            <textarea
-              class="form-control"
-              id="descripcion"
-              rows="3"
-            ></textarea>
+            <textarea class="form-control" id="descripcion" rows="3"></textarea>
           </div>
         </Form.Group>
 
@@ -117,9 +123,15 @@ const CreateTable = () => {
           <Form.Control type="text" value={setDate()} readOnly disabled />
         </Form.Group>
 
-        <Button variant="success" type="submit">
-          Crear producto
-        </Button>
+        <OverlayTrigger
+          placement="right"
+          delay={{ show: 250, hide: 400 }}
+          overlay={renderTooltip}
+        >
+          <Button variant="success" type="button">
+            Crear producto
+          </Button>
+        </OverlayTrigger>
       </Form>
     );
 }
