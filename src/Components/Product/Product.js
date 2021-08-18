@@ -14,11 +14,11 @@ const Product = ({id, nombre, descripcion, decimales, moneda}) => {
   } = useAxios(`/products/${id}`);
   console.log('photosRelated from Product', data.photosRelated);
 
-  if(loading) return "";
-  if(error) return <ErrorMessage message="el server" />
+  if(loading) return <span data-testid="loading">""</span>
+  if(error) return <ErrorMessage data-testid="error" message="el server" />;
 
   return (
-    <Col className="mt-4">
+    <Col className="mt-4" data-testid="resolved">
       <Card style={{ width: '18rem', height: '100%' }}>
         <ItemSlider photos={data.photosRelated} height="286px" />
         <Card.Body className="d-flex flex-column justify-content-end">
