@@ -3,6 +3,18 @@
 ![san_nicolas_meli_preview](https://user-images.githubusercontent.com/63425447/129831537-93f29875-13b8-48b6-ab2c-d4804e3e14dc.gif)
 
 Bienvenido a San Nicolas - Meli, el eccomerce del municipio de San Nicolás.
+
+## Tecnologías utilizadas
+- ReactJS con CRA
+- React-bootstrap y Bootstrap 5
+- React-router-dom library para enrutamiento
+- React testing library con Jest para testing
+- Axios para generar las peticiones a la API *
+- Formik con Yup para formularios y validación
+- JWT-decode para decodificar el token proveniente de la API * 
+
+* el repositorio de la API se encuentra aquí → https://github.com/DiegoNG90/desafio-servidor
+
 Te dejo algunas instrucciones para poder usar esta app para que puedas empezar a realizar las compras de los productos que andes buscando.
 
 ## Configuración inicial
