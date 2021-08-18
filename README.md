@@ -26,8 +26,6 @@ Te dejo algunas instrucciones para poder usar esta app para que puedas empezar a
 * *Nuevamente, reucerde que si no descargó el repositorio 'desafio-servidor', la aplicación no funcionará dado que no estará conectada a ninguna base de datos *
 
 Por default, la aplicación correra en el localhost:3000.
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 Una vez cargue todos los datos, usted podrá:
 - ver el listado de productos
