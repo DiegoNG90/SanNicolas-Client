@@ -2,13 +2,12 @@ import { createContext, useReducer } from 'react';
 import { SET_AUTH, LOGOUT } from '../actions/auth';
 import { authReducer, initialState } from '../reducers/auth';
 import jwt_decode from 'jwt-decode';
-import {API} from '../API.js';
+import { API } from '../API.js';
 
 // 1) Creo/defino el contexto
 export const AuthContext = createContext();
 // 2) Destructuro Provider de AuthContext
 const { Provider } = AuthContext;
-
 
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -25,13 +24,18 @@ export const AuthProvider = ({ children }) => {
     window.location.href = '/login';
   };
   const login = async ({ username, password }) => {
-    const { data: jwt } = await API.post('/auth', { username, password });
-    console.log('jwt: ', jwt);
-    if (jwt) {
-      setAuth({ jwt });
-      localStorage.setItem('auth', jwt);
-      return jwt;
-    } else {
+    try {
+      const { data: jwt } = await API.post('/auth', { username, password });
+
+      if (jwt) {
+        setAuth({ jwt });
+        localStorage.setItem('auth', jwt);
+        return jwt;
+      } else {
+        return null;
+      }
+    } catch (err) {
+      console.log('Error: ', err);
       return null;
     }
   };
