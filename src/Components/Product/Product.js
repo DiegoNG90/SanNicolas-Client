@@ -1,25 +1,21 @@
-import { Col,Card, Button } from 'react-bootstrap';
+import { Col, Card, Button } from 'react-bootstrap';
 import { useAxios } from '../../Hooks/useAxios';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import ErrorMessage from '../../Components/Layout/ErrorMessage';
 import ItemSlider from './ItemSlider';
 
-const Product = ({id, nombre, descripcion, decimales, moneda}) => {
-  const {
-    data,
-    loading,
-    error,
-  } = useAxios(`/products/${id}`);
+const Product = ({ id, nombre, descripcion, decimales, moneda }) => {
+  const { data, loading, error } = useAxios(`/products/${id}`);
   console.log('photosRelated from Product', data.photosRelated);
 
-  if(loading) return <span data-testid="loading">""</span>
-  if(error) return <ErrorMessage data-testid="error" message="el server" />;
+  if (loading) return <span data-testid="loading">""</span>;
+  if (error) return <ErrorMessage data-testid="error" message="el server" />;
 
   return (
     <Col className="mt-4" data-testid="resolved">
-      <Card style={{ width: '18rem', height: '100%' }}>
+      <Card style={{ width: '18rem', height: '100%', margin: '0 auto' }}>
         <ItemSlider photos={data.photosRelated} height="286px" />
         <Card.Body className="d-flex flex-column justify-content-end">
           <Card.Title>{nombre}</Card.Title>
@@ -34,7 +30,7 @@ const Product = ({id, nombre, descripcion, decimales, moneda}) => {
       </Card>
     </Col>
   );
-}
+};
 
 Product.propTypes = {
   product: PropTypes.shape({
