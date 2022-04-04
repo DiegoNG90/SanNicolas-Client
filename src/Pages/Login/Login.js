@@ -6,9 +6,11 @@ import { useAuth } from '../../Hooks/useAuth';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import Header from '../../Components/Layout/Header';
+
 const Login = () => {
   const [wrongPassword, setWrongPassword] = useState(false);
-  console.log("WrongPassword desde Login", wrongPassword)
+  console.log('WrongPassword desde Login', wrongPassword);
   const { login } = useAuth();
   const history = useHistory();
 
@@ -16,22 +18,23 @@ const Login = () => {
     const jwt = await login({ username, password });
     console.log('jwt desde handleLogin LOGIN', jwt);
     if (!jwt) {
-    return setWrongPassword(true);
+      return setWrongPassword(true);
     } else {
-    setWrongPassword(false);
-    return history.push('/dashboard');
+      setWrongPassword(false);
+      return history.push('/dashboard');
     }
   };
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object(validationSchema),
     onSubmit: ({ username, password }) => {
-        handleLogin({ username, password });
+      handleLogin({ username, password });
     },
   });
 
   return (
     <>
+      <Header title="Admin LOGIN" />;
       <Button className="m-4" variant="info" onClick={() => history.push('/')}>
         ← A Home
       </Button>
@@ -79,7 +82,7 @@ const Login = () => {
         </Form>
         {wrongPassword && (
           <span className="text-danger">
-           <b> Admin user o contraseña incorrectas </b>
+            <b> Admin user o contraseña incorrectas </b>
           </span>
         )}
       </Container>
