@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import ErrorMessage from '../../Components/Layout/ErrorMessage';
 import ItemSlider from './ItemSlider';
 
+import { truncate } from '../../utils/string';
+
 const Product = ({ id, nombre, descripcion, decimales, moneda }) => {
   const { data, loading, error } = useAxios(`/products/${id}`);
 
@@ -18,7 +20,7 @@ const Product = ({ id, nombre, descripcion, decimales, moneda }) => {
         <ItemSlider photos={data.photosRelated} height="286px" />
         <Card.Body className="d-flex flex-column justify-content-end">
           <Card.Title>{nombre}</Card.Title>
-          <Card.Text>{descripcion}</Card.Text>
+          <Card.Text>{truncate(descripcion, 28)}</Card.Text>
           <Card.Text>
             Precio ${decimales} {moneda}
           </Card.Text>
