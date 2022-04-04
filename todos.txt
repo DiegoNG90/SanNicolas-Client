@@ -1,2 +1,6 @@
-- Remove "" on first render -> OK
-- Align cards on responsive (mobile) view -> OK
+1) Remove "" on first render -> OK
+2) Align cards on responsive (mobile) view -> OK
+3) Add titles with react-helmet -> OK
+4) Add provisory logo/favicon (.png) -> OK
+5) Truncate card text -> OK
+6) Add a "Leer mas" if truncate is happening
