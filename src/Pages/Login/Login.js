@@ -8,25 +8,23 @@ import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const [wrongPassword, setWrongPassword] = useState(false);
-  console.log("WrongPassword desde Login", wrongPassword)
   const { login } = useAuth();
   const history = useHistory();
 
   const handleLogin = async ({ username, password }) => {
     const jwt = await login({ username, password });
-    console.log('jwt desde handleLogin LOGIN', jwt);
     if (!jwt) {
-    return setWrongPassword(true);
+      return setWrongPassword(true);
     } else {
-    setWrongPassword(false);
-    return history.push('/dashboard');
+      setWrongPassword(false);
+      return history.push('/dashboard');
     }
   };
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object(validationSchema),
     onSubmit: ({ username, password }) => {
-        handleLogin({ username, password });
+      handleLogin({ username, password });
     },
   });
 
@@ -79,7 +77,7 @@ const Login = () => {
         </Form>
         {wrongPassword && (
           <span className="text-danger">
-           <b> Admin user o contraseña incorrectas </b>
+            <b> Admin user o contraseña incorrectas </b>
           </span>
         )}
       </Container>

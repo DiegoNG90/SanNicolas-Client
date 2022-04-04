@@ -1,18 +1,14 @@
 import { FormControl, Button, Form } from 'react-bootstrap';
-import { memo} from 'react';
-import { useData } from '../../../Hooks/useData'
-
+import { memo } from 'react';
+import { useData } from '../../../Hooks/useData';
 
 const SearchBar = ({ setCharacter }) => {
-
   const { data } = useData();
-  console.log('Data desde SearchBar :>', data);
 
   const getCharacters = (e) => {
     e.preventDefault();
     setCharacter(e.target.elements[0].value);
   };
-
 
   return (
     <Form

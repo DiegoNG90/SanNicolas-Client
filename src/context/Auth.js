@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
         return null;
       }
     } catch (err) {
-      console.log('Error: ', err);
+      console.error('[LOGIN ERROR] ->', err);
       return null;
     }
   };
