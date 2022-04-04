@@ -6,6 +6,8 @@ import { useAuth } from '../../Hooks/useAuth';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import Header from '../../Components/Layout/Header';
+
 const Login = () => {
   const [wrongPassword, setWrongPassword] = useState(false);
   const { login } = useAuth();
@@ -30,6 +32,7 @@ const Login = () => {
 
   return (
     <>
+      <Header title="Admin LOGIN" />
       <Button className="m-4" variant="info" onClick={() => history.push('/')}>
         ← A Home
       </Button>

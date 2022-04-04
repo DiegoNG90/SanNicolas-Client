@@ -8,6 +8,7 @@ import UpdateDeleteTable from './UpdateDeleteTable';
 import CreateTable from './CreateTable';
 import ErrorMessage from '../../Components/Layout/ErrorMessage';
 import Loader from '../../Components/Loader';
+import Header from '../../Components/Layout/Header';
 
 const AdminDashboard = () => {
   const { getUserInformation } = useAuth();
@@ -24,6 +25,7 @@ const AdminDashboard = () => {
 
   return (
     <>
+      <Header title="Dashboard" />
       <Navbar />
       <Container fluid>
         <h1>Dashboard</h1>
