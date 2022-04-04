@@ -17,7 +17,6 @@ const AdminDashboard = () => {
   } = getUserInformation();
   // Fetch data
   const { data, loading, error } = useData();
-  console.log('Data from AdminDashBoard :>', data);
   // Tab state
   const [key, setKey] = useState('home');
 

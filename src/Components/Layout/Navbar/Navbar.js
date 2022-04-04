@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../../Hooks/useAuth';
 
 import Logo from '../../Logo';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
 
 const Navbar = ({ setCharacter }) => {
   const { state, logout } = useAuth();
   const { isLoggedIn } = state;
-
-  console.log('isLoggedIn desde Navbar', isLoggedIn);
 
   return (
     <NavBootstrap bg="dark" variant="dark" expand="lg" collapseOnSelect>
@@ -24,7 +22,7 @@ const Navbar = ({ setCharacter }) => {
           </Link>
         )}
 
-        { !isLoggedIn && <SearchBar setCharacter={setCharacter} />}
+        {!isLoggedIn && <SearchBar setCharacter={setCharacter} />}
 
         {!isLoggedIn ? (
           <Link to={'/login'}>
@@ -33,7 +31,7 @@ const Navbar = ({ setCharacter }) => {
         ) : (
           <Button variant="danger" onClick={logout}>
             {/* <Link to={'/'} style={{textDecoration: "none", color: "white"}}> */}
-              Logout
+            Logout
             {/* </Link> */}
           </Button>
         )}

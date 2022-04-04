@@ -10,13 +10,11 @@ import Header from '../../Components/Layout/Header';
 
 const Login = () => {
   const [wrongPassword, setWrongPassword] = useState(false);
-  console.log('WrongPassword desde Login', wrongPassword);
   const { login } = useAuth();
   const history = useHistory();
 
   const handleLogin = async ({ username, password }) => {
     const jwt = await login({ username, password });
-    console.log('jwt desde handleLogin LOGIN', jwt);
     if (!jwt) {
       return setWrongPassword(true);
     } else {
