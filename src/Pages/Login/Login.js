@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <>
-      <Header title="Admin LOGIN" />;
+      <Header title="Admin LOGIN" />
       <Button className="m-4" variant="info" onClick={() => history.push('/')}>
         ← A Home
       </Button>
