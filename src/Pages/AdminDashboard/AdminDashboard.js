@@ -26,7 +26,7 @@ const AdminDashboard = () => {
 
   return (
     <>
-      <Header title="Admin" />
+      <Header title="Dashboard" />
       <Navbar />
       <Container fluid>
         <h1>Dashboard</h1>
