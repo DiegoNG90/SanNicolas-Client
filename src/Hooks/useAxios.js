@@ -9,14 +9,12 @@ export const useAxios = (endpoint = '') => {
 
   const getData = useCallback(async () => {
     try {
-      const {data} = await API.get(`${endpoint}`);
-      console.log("Data from useAxios", data)
-      dispatch({ type: ACTIONS.SET_DATA, payload: {data} });
+      const { data } = await API.get(`${endpoint}`);
+      dispatch({ type: ACTIONS.SET_DATA, payload: { data } });
     } catch (error) {
       console.error(error);
       dispatch({ type: ACTIONS.SET_ERROR });
     }
-
   }, [endpoint]);
 
   useEffect(() => {

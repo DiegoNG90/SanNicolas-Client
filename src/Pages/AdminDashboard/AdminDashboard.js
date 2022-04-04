@@ -1,25 +1,26 @@
 import { useState } from 'react';
 import { Container, Tab, Tabs } from 'react-bootstrap';
 import { useAuth } from '../../Hooks/useAuth';
-import { useData } from '../../Hooks/useData'
+import { useData } from '../../Hooks/useData';
 
 import Navbar from '../../Components/Layout/Navbar/Navbar';
-import UpdateDeleteTable from './UpdateDeleteTable'
-import CreateTable from './CreateTable'
-import ErrorMessage from '../../Components/Layout/ErrorMessage'
-import Loader from '../../Components/Loader'
+import UpdateDeleteTable from './UpdateDeleteTable';
+import CreateTable from './CreateTable';
+import ErrorMessage from '../../Components/Layout/ErrorMessage';
+import Loader from '../../Components/Loader';
 
 const AdminDashboard = () => {
-  const {getUserInformation} = useAuth();
-  const {name:{name}} = getUserInformation();
+  const { getUserInformation } = useAuth();
+  const {
+    name: { name },
+  } = getUserInformation();
   // Fetch data
-  const {data, loading, error} = useData();
-  console.log("Data from AdminDashBoard :>", data)
+  const { data, loading, error } = useData();
   // Tab state
   const [key, setKey] = useState('home');
 
-  if(error) return <ErrorMessage message="en la BDD al traer los productos"/>
-  if(loading) return <Loader />
+  if (error) return <ErrorMessage message="en la BDD al traer los productos" />;
+  if (loading) return <Loader />;
 
   return (
     <>
@@ -44,7 +45,6 @@ const AdminDashboard = () => {
           <Tab eventKey="profile" title="Crear nuevo producto">
             <CreateTable />
           </Tab>
-
         </Tabs>
       </Container>
     </>

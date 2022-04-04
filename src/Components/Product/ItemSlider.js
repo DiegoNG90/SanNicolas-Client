@@ -1,16 +1,15 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Carousel } from 'react-bootstrap';
 
-const ItemSlider = ({photos, width, height}) => {
+const ItemSlider = ({ photos, width, height }) => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
 
-  console.log("Photos from ItemSlider", photos)
   return (
     <Carousel
       fade
