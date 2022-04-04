@@ -1,2 +1,2 @@
-- Remove "" on first render
-- Align cards on responsive (mobile) view
+- Remove "" on first render -> OK
+- Align cards on responsive (mobile) view -> OK
