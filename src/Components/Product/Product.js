@@ -8,9 +8,8 @@ import ItemSlider from './ItemSlider';
 
 const Product = ({ id, nombre, descripcion, decimales, moneda }) => {
   const { data, loading, error } = useAxios(`/products/${id}`);
-  console.log('photosRelated from Product', data.photosRelated);
 
-  if (loading) return <span data-testid="loading">""</span>;
+  if (loading) return <span data-testid="loading"></span>;
   if (error) return <ErrorMessage data-testid="error" message="el server" />;
 
   return (
