@@ -9,7 +9,6 @@ const ItemSlider = ({ photos, width, height }) => {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-
   return (
     <Carousel
       fade
@@ -19,9 +18,9 @@ const ItemSlider = ({ photos, width, height }) => {
       prevLabel=""
     >
       {photos.length > 0 &&
-        photos?.map((photo) => {
+        photos?.map((photo, index) => {
           return (
-            <Carousel.Item className="img__height">
+            <Carousel.Item className="img__height" key={index}>
               <img
                 className="d-block w-100"
                 src={photo.foto_url}
